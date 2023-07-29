@@ -1,0 +1,47 @@
+@import '../../style/var';
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    padding-top: 30px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: 250px;
+    height: 65px;
+    margin-left: 60px;
+}
+
+.menu_link {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 50px;
+    &:hover {
+        color: #d5d5d5;
+    }
+}
+
+.active {
+    background: $maingradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cabinet {
+    margin-right: 120px;
+}
+
+.cabinet img {
+    height: 36px;
+}
