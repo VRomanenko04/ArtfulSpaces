@@ -1,10 +1,11 @@
 import classes from './_home.module.scss';
+import Header from '../../components/blocks/home-header/Header';
 
 const Home = () => {
     return (
-        <div className={classes.header}>
-
-        </div>
+        <>
+        <Header/>
+        </>
     )
 }
 
