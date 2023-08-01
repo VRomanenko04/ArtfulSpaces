@@ -1,0 +1,35 @@
+.slide__container {
+    position: relative;
+    flex: 1 0 100%;
+}
+
+.slide__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.right__imgs {
+    display: flex;
+    flex-direction: column;
+}
+
+.img1, .img2, .img3 {
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.img1 {
+    width: 535px;
+    height: 400px;
+}
+
+.img2 {
+    width: 535px;
+    height: 300px;
+}
+
+.img3 {
+    width: 500px;
+    height: 700px;
+}

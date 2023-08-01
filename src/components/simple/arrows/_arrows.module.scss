@@ -1,0 +1,36 @@
+.arrows {
+    color: white;
+    display: flex;
+    font-size: 30px;
+    justify-content: space-between;
+    height: 100%;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    z-index: 1;
+}
+
+.left__arrow, .rigth__arrow {
+    height: 40px;
+    width: 40px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.left__arrow {
+    background-image: url(../../../assets/arrow-icon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 15px;
+        transform: rotate(-90deg);
+}
+
+.rigth__arrow {
+    background-image: url(../../../assets/arrow-icon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 15px;
+    transform: rotate(90deg);
+}
