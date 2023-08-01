@@ -1,6 +1,6 @@
 import './_navbar.scss';
-import logo from '../../assets/ArtfulSpaces_logo.png';
-import cabinet_btn from '../../assets/portrait.png';
+import logo from '../../../assets/ArtfulSpaces_logo.png';
+import cabinet_btn from '../../../assets/portrait.png';
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {

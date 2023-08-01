@@ -1,6 +1,6 @@
 import classes from './_home.module.scss';
-import Header from '../../components/blocks/home-header/Header';
-import HomeInfo from '../../components/blocks/home-info/HomeInfo';
+import Header from '../../components/simple/home-header/Header';
+import HomeInfo from '../../components/ordinary/home-info/HomeInfo';
 
 const Home = () => {
     return (
