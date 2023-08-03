@@ -1,12 +1,15 @@
 import classes from './_arrows.module.scss';
 
-type Props = {}
+type Props = {
+    onPrevSlide: () => void;
+    onNextSlide: () => void;
+};
 
-const Arrows = (props: Props) => {
+const Arrows = ({ onPrevSlide, onNextSlide }: Props) => {
     return (
         <div className={classes.arrows}>
-            <div className={classes.left__arrow} />
-            <div className={classes.rigth__arrow} />
+            <div className={classes.left__arrow} onClick={onPrevSlide}/>
+            <div className={classes.rigth__arrow} onClick={onNextSlide}/>
         </div>
     )
 }
