@@ -26,21 +26,25 @@ const SlidesList = ({ currentSlideIndex }: Props) => {
             img1: project1_1,
             img2: project1_2,
             img3: project1_3,
+            slideHead: 'Modern kitchen',
         },
         {
             img1: project2_1,
             img2: project2_2,
             img3: project2_3,
+            slideHead: 'Basic kitchen',
         },
         {
             img1: project3_1,
             img2: project3_2,
             img3: project3_3,
+            slideHead: "Сhildren's room",
         },
         {
             img1: project4_1,
             img2: project4_2,
             img3: project4_3,
+            slideHead: 'Modern bedroom',
         },
     ];
 
@@ -52,6 +56,7 @@ const SlidesList = ({ currentSlideIndex }: Props) => {
                     img1={projects[currentSlideIndex].img1}
                     img2={projects[currentSlideIndex].img2}
                     img3={projects[currentSlideIndex].img3}
+                    slideHead={projects[currentSlideIndex].slideHead}
                     active={true}
                 />
             </AnimatePresence>
