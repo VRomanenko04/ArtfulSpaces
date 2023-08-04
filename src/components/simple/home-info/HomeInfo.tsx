@@ -3,7 +3,7 @@ import classes from './_home-info.module.scss';
 import individual from '../../../assets/Individual.svg';
 import team from '../../../assets/Team.svg';
 import speed from '../../../assets/Speed.svg';
-import InfoBlock from '../../simple/info-block/InfoBlock';
+import InfoBlock from '../../ordinary/info-block/InfoBlock';
 
 
 const HomeInfo = () => {

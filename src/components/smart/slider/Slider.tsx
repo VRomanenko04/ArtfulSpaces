@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SlidesList from '../../ordinary/slides-list/SlidesList';
+import SlidesList from '../../simple/slides-list/SlidesList';
 import Arrows from '../../simple/arrows/Arrows';
 import classes from './_slider.module.scss';
 

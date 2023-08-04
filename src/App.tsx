@@ -5,7 +5,7 @@ import Contact from "./pages/contact/Contact";
 import Calculator from "./pages/calculator/Calculator";
 import Cabinet from "./pages/cabinet/Cabinet";
 import Home from "./pages/home/Home";
-import Layout from "./components/Layout";
+import Layout from "./components/smart/Layout";
 
 function App() {
   return (

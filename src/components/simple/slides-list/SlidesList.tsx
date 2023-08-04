@@ -1,5 +1,5 @@
 import classes from './_slides-list.module.scss';
-import Slides from '../slides/Slides';
+import Slides from '../../ordinary/slides/Slides';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import project1_1 from '../../../assets/projectes_imgs/project-1-1.webp';
