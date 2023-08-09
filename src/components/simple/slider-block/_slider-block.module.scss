@@ -38,3 +38,9 @@
         transform: translateY(-10px);
     }
 }
+
+@media screen and (max-width: 1050px) {
+    .block__container {
+        margin: 100px 0;
+    }
+}

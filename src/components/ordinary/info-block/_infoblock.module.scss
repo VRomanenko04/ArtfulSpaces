@@ -25,3 +25,30 @@
         color: $smalltext;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .info__block {
+        width: 80%;
+        margin: auto 0 30px 15%;
+    }
+
+    .info__img {
+        height: 72px;
+    }
+
+    .info__text {
+        h6 {
+            font-size: 20px;
+        }
+    
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1050px) {
+    .info__block {
+        margin: auto 0 30px 30%;
+    }
+}
