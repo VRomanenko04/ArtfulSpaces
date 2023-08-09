@@ -10,6 +10,7 @@
     align-self: center;
     text-align: center;
     margin-bottom: 80px;
+    max-width: 80%;
 
     h4 {
         font-size: 58px;
@@ -26,7 +27,6 @@
 .button {
     background: $maingradient;
     color: #fff;
-    font-size: 1em;
     font-weight: 500;
     align-self: center;
     border: 1px solid #fff;
@@ -36,6 +36,18 @@
 
     &:hover {
         transform: translateY(-10px);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .block__head {
+        h4 {
+            font-size: 38px;
+        }
+
+        p {
+            font-size: 16px;
+        }
     }
 }
 
