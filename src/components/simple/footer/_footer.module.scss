@@ -44,3 +44,59 @@
 .copyright p {
     margin-bottom: 50px;
 }
+
+//Адаптив под телефоны
+@media screen and (max-width: 640px) {
+    .footer__navbar {
+        flex-direction: column;
+    }
+
+    .subscribe__block {
+        margin-bottom: 50px;
+        h4 {
+            text-align: center;
+            margin-left: 5%;
+            margin-bottom: 15px;
+        }
+    }
+
+    .navlinks {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .nav__part {
+        margin-bottom: 30px;
+        
+        p {
+            max-width: 50%;
+        }
+    }
+
+    .line {
+        margin: 0;
+        margin-bottom: 50px;
+    }
+}
+
+//Адаптив под средние гориз. планшеты и окна
+@media screen and (min-width: 641px) and (max-width: 1000px) {
+    .footer__navbar {
+        flex-direction: column;
+    }
+
+    .subscribe__block {
+        margin-bottom: 30px;
+        h4 {
+            text-align: center;
+            margin-right: 5%;
+        }
+    }
+
+    .navlinks {
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 50px;
+    }
+}

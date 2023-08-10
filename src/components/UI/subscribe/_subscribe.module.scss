@@ -30,3 +30,16 @@
     padding: 14px 28px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 640px) {
+    .input__container {
+        width: 200px;
+        margin: 0;
+        margin-left: 50px;
+    }
+
+    .submit__button {
+        right: -25%;
+        padding: 12px 24px;
+    }
+}
