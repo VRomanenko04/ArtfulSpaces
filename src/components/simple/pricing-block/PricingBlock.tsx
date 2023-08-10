@@ -14,7 +14,7 @@ const PricingBlock = () => {
                 </div>
                 <div className={classes.down__side}>
                     <p>The site has an approximate price calculator, you can use it, after which you will contact us free of charge for the exact price.</p>
-                    <Button text='Price calculator' link='calculator' extraClass={classes.button}/>
+                    <Button text='Price calculator' link='calculator' extraClass={classes.button} alignSelf='center'/>
                 </div>
             </div>
         </section>

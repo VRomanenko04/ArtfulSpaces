@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    margin: 0 20px 100px 20px;
 
     h4 {
         font-size: 58px;
@@ -49,8 +49,46 @@
             background-color: #fff;
             border: 0.5px solid #444444;
             border-radius: 15px;
-            font-size: 18px;
             font-weight: 400;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .pricing__container h4 {
+        font-size: 38px;
+    }
+
+    .pricing__block {
+        padding: 40px;
+        max-width: 80%;
+
+        .up__side {
+            margin-bottom: 30px;
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .down__side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+    
+            p {
+                font-size: 16px;
+                max-width: 90%;
+                margin-bottom: 30px;
+            }
+    
+            .button {
+                background-color: #fff;
+                border: 0.5px solid #444444;
+                border-radius: 15px;
+                font-size: 18px;
+                font-weight: 400;
+            }
         }
     }
 }
