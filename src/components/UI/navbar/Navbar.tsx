@@ -5,8 +5,10 @@ import Media from 'react-media';
 import BurgerBtn from '../burger-btn/BurgerBtn';
 import './_navbar.scss';
 
-import logo from '../../../assets/ArtfulSpaces_logo.png';
-import cabinet_btn from '../../../assets/portrait.png';
+import logo_home from '../../../assets/ArtfulSpaces_logo.png';
+import logo from '../../../assets/ArtfulSpaces_logo_black.png';
+import cabinet_btn from '../../../assets/cabinet_icon.svg';
+import cabinet_home_btn from '../../../assets/cabinet_icon_white.svg';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -41,9 +43,16 @@ const Navbar = () => {
 
     return (
         <div className='navbar'>
-            <Link to='/' className='logo'>
+            {
+                isHomePage ? 
+                <Link to='/' className='logo'>
+                    <img src={logo_home} alt="logo" />
+                </Link>
+                : 
+                <Link to='/' className='logo'>
                 <img src={logo} alt="logo" />
-            </Link>
+                </Link>
+            }
             <div className='menu__wrapper'>
                 <BurgerBtn isOpen={isOpen} handleMenu={handleMenu}/>
                 <div className='nav nav__vision' style={hideOrShow}>
@@ -63,9 +72,16 @@ const Navbar = () => {
                                             <NavLink className={componentClass} to='contact'>Contact</NavLink>
                                             {location.pathname !== 'cabinet' && (
                                                 <motion.li className='nav__li' >
-                                                    <Link className='cabinet' to='cabinet'>
-                                                        <img src={cabinet_btn} alt="cabinet_btn" />
-                                                    </Link>
+                                                    {
+                                                        isHomePage ? 
+                                                        <Link className='cabinet' to='cabinet'>
+                                                            <img src={cabinet_home_btn} alt="cabinet_btn" />
+                                                        </Link>
+                                                        : 
+                                                        <Link className='cabinet' to='cabinet'>
+                                                            <img src={cabinet_btn} alt="cabinet_btn" />
+                                                        </Link>
+                                                    }
                                                 </motion.li>
                                             )}
                                         </motion.ul>
