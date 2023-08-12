@@ -1,0 +1,19 @@
+@import '../../../style/var';
+
+.bas__label {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.bas__input {
+    width: 300px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 2px solid transparent;
+    border-image: $maingradient;
+    border-image-slice: 1;
+    background-color: #f5f5f5;
+}

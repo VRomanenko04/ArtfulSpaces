@@ -1,0 +1,27 @@
+@import '../../../style/var';
+
+.form__section {
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+        align-self: center;
+        margin-top: 35px;
+        width: 200px;
+        height: 50px;
+        font-size: 1em;
+        background: $maingradient;
+        color: #fff;
+        font-weight: 500;
+        border: 1px solid #fff;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+}
