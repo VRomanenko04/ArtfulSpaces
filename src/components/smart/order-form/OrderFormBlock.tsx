@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import classes from './_order-form-block.module.scss';
 import OrderForm from '../../simple/order-form/OrderForm';
+import calculateCost from '../../../count/PriceCount';
 
-interface FormData {
+interface IFormData {
     firstName: string;
     lastName: string;
     phoneNumber: string
     email: string;
 }
 
+interface ICalculate {
+    footage: number;
+    roomsAmount: number;
+}
+
 const OrderFormBlock = () => {
-    const [formData, setFormData] = useState<FormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
+    const [formData, setFormData] = useState<IFormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
+    const [footage, setFootage] = useState<ICalculate['footage']>(0);
+    const [roomsAmount, setRoomsAmount] = useState<ICalculate['roomsAmount']>(0);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -25,8 +33,12 @@ const OrderFormBlock = () => {
         // Сохраняем данные в localStorage
         localStorage.setItem('formData', JSON.stringify(formDataObject));
 
+        //Высчитываем цену заказа
+        calculateCost(footage, roomsAmount);
+
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
-        alert('Form data saved to localStorage!');
+        setFootage(0);
+        setRoomsAmount(0);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,12 +49,20 @@ const OrderFormBlock = () => {
         }));
     };
 
+    const handleAmountInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue: number = parseFloat(event.target.value);
+        setFootage(newValue);
+    };
+
     return (
         <section className={classes.form__section}>
             <OrderForm
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
+                handleAmountInputChange={handleAmountInputChange}
                 formData={formData}
+                footage={footage}
+                roomsAmount={roomsAmount}
             />
         </section>
     )

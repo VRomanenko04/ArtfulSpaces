@@ -7,14 +7,15 @@ type Props = {
     type: string;
     id: string;
     name: string;
+    step?: string;
     placeholder?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     extraInputClass?: string;
     extraLabelClass?: string;
 }
 
-const BasicInput = ({labelText, htmlFor, type, id, name, value, placeholder, onChange, extraInputClass, extraLabelClass}: Props) => {
+const BasicInput = ({labelText, htmlFor, type, id, name, step, value, placeholder, onChange, extraInputClass, extraLabelClass}: Props) => {
     const inputClass = extraInputClass ? `${classes.bas__input} ${extraInputClass}` : classes.bas__input;
     const labelClass = extraLabelClass ? `${classes.bas__label} ${extraLabelClass}` : classes.bas__label;
 
@@ -26,6 +27,7 @@ const BasicInput = ({labelText, htmlFor, type, id, name, value, placeholder, onC
                 type={type} 
                 id={id}
                 name={name}
+                step={step}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
