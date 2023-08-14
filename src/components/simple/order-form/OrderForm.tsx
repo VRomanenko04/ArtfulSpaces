@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import classes from './_order-from.module.scss';
+import React from 'react';
 import BasicInput from '../../UI/basic-input/BasicInput';
+import classes from './_order-form.module.scss';
 
 interface FormData {
     firstName: string;
@@ -9,37 +9,15 @@ interface FormData {
     email: string;
 }
 
-const OrderForm = () => {
-    const [formData, setFormData] = useState<FormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
+type Props = {
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+    handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    formData: FormData;
+}
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        // Создаем объект с данными формы
-        const formDataObject = {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            phoneNumber: formData.phoneNumber,
-            email: formData.email,
-        };
-        // Сохраняем данные в localStorage
-        localStorage.setItem('formData', JSON.stringify(formDataObject));
-
-        setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
-        alert('Form data saved to localStorage!');
-    };
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
+const OrderForm = ({handleSubmit, handleInputChange, formData}: Props) => {
     return (
-        <section className={classes.form__section}>
-            <form onSubmit={handleSubmit} className={classes.form}>
+        <form onSubmit={handleSubmit} className={classes.form}>
                 <BasicInput
                     labelText='First Name:'
                     htmlFor="firstName"
@@ -80,8 +58,7 @@ const OrderForm = () => {
                 />
                 <button className={classes.btn} type="submit">Place an Order</button>
             </form>
-        </section>
     )
 }
 
-export default OrderForm
+export default OrderForm;
