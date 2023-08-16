@@ -13,16 +13,17 @@ interface IFormData {
 interface ICalculate {
     footage: number;
     roomsAmount: number;
+    totalPrice: number;
 }
 
 const OrderFormBlock = () => {
     const [formData, setFormData] = useState<IFormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
     const [footage, setFootage] = useState<ICalculate['footage']>(0);
-    const [roomsAmount, setRoomsAmount] = useState<ICalculate['roomsAmount']>(0);
+    const [roomsAmount, setRoomsAmount] = useState<ICalculate['roomsAmount']>(1);
+    const [totalPrice, setTotalPrice] = useState<ICalculate['totalPrice']>(0);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         // Создаем объект с данными формы
         const formDataObject = {
             firstName: formData.firstName,
@@ -34,8 +35,9 @@ const OrderFormBlock = () => {
         localStorage.setItem('formData', JSON.stringify(formDataObject));
 
         //Высчитываем цену заказа
-        calculateCost(footage, roomsAmount);
+        setTotalPrice(calculateCost(footage, roomsAmount));
 
+        //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
         setFootage(0);
         setRoomsAmount(0);
@@ -54,16 +56,30 @@ const OrderFormBlock = () => {
         setFootage(newValue);
     };
 
+    //Handler для селектора 
+    const handleNumberChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const newNumber = parseInt(event.target.value, 10);
+        setRoomsAmount(newNumber);
+    };
+
     return (
         <section className={classes.form__section}>
             <OrderForm
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
                 handleAmountInputChange={handleAmountInputChange}
+                handleNumberChange={handleNumberChange}
                 formData={formData}
                 footage={footage}
                 roomsAmount={roomsAmount}
             />
+            {
+                totalPrice > 0
+                &&
+                <div className={classes.prev__price}>
+                    <p>Estimated cost of work: <strong>{totalPrice} UAH</strong></p>
+                </div>
+            }
         </section>
     )
 }

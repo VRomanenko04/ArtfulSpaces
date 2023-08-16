@@ -4,3 +4,16 @@
     flex-direction: column;
     align-items: center;
 }
+
+.prev__price {
+    margin-top: 20px;
+
+    p {
+        font-size: 18px;
+
+        strong {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}
