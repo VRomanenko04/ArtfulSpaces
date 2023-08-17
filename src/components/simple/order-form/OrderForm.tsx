@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import BasicInput from '../../UI/basic-input/BasicInput';
 import classes from './_order-form.module.scss';
 import Selector from '../../UI/selector/Selector';
@@ -6,8 +6,12 @@ import Selector from '../../UI/selector/Selector';
 interface IFormData {
     firstName: string;
     lastName: string;
-    phoneNumber: string
+    phoneNumber: string;
     email: string;
+}
+
+interface IValidate extends IFormData {
+    footage: string;
 }
 
 type Props = {
@@ -21,8 +25,54 @@ type Props = {
 }
 
 const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData, footage, roomsAmount}: Props) => {
+    const [validationErrors, setValidationErrors] = useState<IValidate>({
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+        email: '',
+        footage: ''
+    });
+    
+    const isFormValid = () => {
+        const errors: IValidate = {
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            email: '',
+            footage: ''
+        };
+
+        if (!formData.firstName) {
+            errors.firstName = 'First Name is required';
+        }
+        if (!formData.lastName) {
+            errors.lastName = 'Last Name is required';
+        }
+        if (!formData.phoneNumber || formData.phoneNumber.length !== 12) {
+            errors.phoneNumber = 'Phone Number must be 12 characters';
+        }
+        if (!formData.email || !formData.email.includes('@')) {
+            errors.email = 'Email must be valid';
+        }
+        if (footage <= 0) {
+            errors.footage = 'Apartment Area must be greater than 0';
+        }
+
+        setValidationErrors(errors);
+        const isValid = Object.values(errors).every(error => error === '');
+        return isValid;
+    };
+
+    //Эвент на форму
+    const handleValidSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (isFormValid()) {
+            handleSubmit(event);
+        }
+    }
+    
     return (
-        <form onSubmit={handleSubmit} className={classes.form}>
+        <form onSubmit={handleValidSubmit} className={classes.form}>
                 <BasicInput
                     labelText='First Name:'
                     htmlFor="firstName"
@@ -32,6 +82,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     value={formData.firstName}
                     onChange={handleInputChange}
                 />
+                {validationErrors.firstName && <p className={classes.error}>{validationErrors.firstName}</p>}
                 <BasicInput
                     labelText='Last Name:'
                     htmlFor="lastName"
@@ -41,6 +92,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     value={formData.lastName}
                     onChange={handleInputChange}
                 />
+                {validationErrors.lastName && <p className={classes.error}>{validationErrors.lastName}</p>}
                 <BasicInput
                     labelText='Phone Number:'
                     htmlFor="phoneNumber"
@@ -51,6 +103,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
                 />
+                {validationErrors.phoneNumber && <p className={classes.error}>{validationErrors.phoneNumber}</p>}
                 <BasicInput
                     labelText='E-mail:'
                     htmlFor="email"
@@ -61,6 +114,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     value={formData.email}
                     onChange={handleInputChange}
                 />
+                {validationErrors.email && <p className={classes.error}>{validationErrors.email}</p>}
                 <BasicInput
                     labelText='Apartment Area (meters):'
                     htmlFor="footage"
@@ -73,6 +127,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     extraLabelClass={classes.block__margin}
                     step="1"
                 />
+                {validationErrors.footage && <p className={classes.error}>{validationErrors.footage}</p>}
                 <Selector
                     roomsAmount={roomsAmount}
                     labelText='Number of rooms:'
