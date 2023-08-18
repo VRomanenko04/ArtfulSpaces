@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './_order-form-block.module.scss';
-import OrderForm from '../../simple/order-form/OrderForm';
+import OrderForm from '../order-form/OrderForm';
 import calculateCost from '../../../count/PriceCount';
 
 interface IFormData {
