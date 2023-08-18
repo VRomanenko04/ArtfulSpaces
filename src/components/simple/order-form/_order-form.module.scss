@@ -19,8 +19,24 @@
     }
 }
 
-.block__margin {
-    margin-top: 40px;
+.form__title {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.inputs__group {
+    display: flex;
+    flex-direction: row;
+}
+
+.rigth__col,
+.left__col {
+    display: flex;
+    flex-direction: column;
+}
+
+.left__col {
+    margin-left: 30px;
 }
 
 .error {

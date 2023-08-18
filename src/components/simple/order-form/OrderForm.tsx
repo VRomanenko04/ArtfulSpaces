@@ -72,72 +72,81 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
     }
     
     return (
-        <form onSubmit={handleValidSubmit} className={classes.form}>
-                <BasicInput
-                    labelText='First Name:'
-                    htmlFor="firstName"
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                />
-                {validationErrors.firstName && <p className={classes.error}>{validationErrors.firstName}</p>}
-                <BasicInput
-                    labelText='Last Name:'
-                    htmlFor="lastName"
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                />
-                {validationErrors.lastName && <p className={classes.error}>{validationErrors.lastName}</p>}
-                <BasicInput
-                    labelText='Phone Number:'
-                    htmlFor="phoneNumber"
-                    type="tel"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    placeholder='380556667788'
-                    value={formData.phoneNumber}
-                    onChange={handleInputChange}
-                />
-                {validationErrors.phoneNumber && <p className={classes.error}>{validationErrors.phoneNumber}</p>}
-                <BasicInput
-                    labelText='E-mail:'
-                    htmlFor="email"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder='your@gmail.com'
-                    value={formData.email}
-                    onChange={handleInputChange}
-                />
-                {validationErrors.email && <p className={classes.error}>{validationErrors.email}</p>}
-                <BasicInput
-                    labelText='Apartment Area (meters):'
-                    htmlFor="footage"
-                    type="number"
-                    id="footage"
-                    name="footage"
-                    placeholder='0'
-                    value={footage === 0 ? '' : footage}
-                    onChange={handleAmountInputChange}
-                    extraLabelClass={classes.block__margin}
-                    step="1"
-                />
-                {validationErrors.footage && <p className={classes.error}>{validationErrors.footage}</p>}
-                <Selector
-                    roomsAmount={roomsAmount}
-                    labelText='Number of rooms:'
-                    htmlFor='rooms'
-                    id='rooms'
-                    name='rooms'
-                    handleNumberChange={handleNumberChange}
-                />
+        <>
+            <h2 className={classes.form__title}>Order Form</h2>
+            <form onSubmit={handleValidSubmit} className={classes.form}>
+                <div className={classes.inputs__group}>
+                    <div className={classes.rigth__col}>
+                        <BasicInput
+                            labelText='First Name:'
+                            htmlFor="firstName"
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleInputChange}
+                        />
+                        {validationErrors.firstName && <p className={classes.error}>{validationErrors.firstName}</p>}
+                        <BasicInput
+                            labelText='Last Name:'
+                            htmlFor="lastName"
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleInputChange}
+                        />
+                        {validationErrors.lastName && <p className={classes.error}>{validationErrors.lastName}</p>}
+                        <BasicInput
+                            labelText='Phone Number:'
+                            htmlFor="phoneNumber"
+                            type="tel"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            placeholder='380556667788'
+                            value={formData.phoneNumber}
+                            onChange={handleInputChange}
+                        />
+                        {validationErrors.phoneNumber && <p className={classes.error}>{validationErrors.phoneNumber}</p>}
+                        <BasicInput
+                            labelText='E-mail:'
+                            htmlFor="email"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder='your@gmail.com'
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                        {validationErrors.email && <p className={classes.error}>{validationErrors.email}</p>}
+                    </div>
+                    <div className={classes.left__col}>
+                        <BasicInput
+                            labelText='Apartment Area (meters):'
+                            htmlFor="footage"
+                            type="number"
+                            id="footage"
+                            name="footage"
+                            placeholder='0'
+                            value={footage === 0 ? '' : footage}
+                            onChange={handleAmountInputChange}
+                            extraLabelClass={classes.block__margin}
+                            step="1"
+                        />
+                        {validationErrors.footage && <p className={classes.error}>{validationErrors.footage}</p>}
+                        <Selector
+                            roomsAmount={roomsAmount}
+                            labelText='Number of rooms:'
+                            htmlFor='rooms'
+                            id='rooms'
+                            name='rooms'
+                            handleNumberChange={handleNumberChange}
+                        />
+                    </div>
+                </div>
                 <button className={classes.btn} type="submit">Place an Order</button>
             </form>
+        </>
     )
 }
 
