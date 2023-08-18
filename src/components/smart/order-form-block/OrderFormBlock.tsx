@@ -40,7 +40,7 @@ const OrderFormBlock = () => {
         //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
         setFootage(0);
-        setRoomsAmount(0);
+        setRoomsAmount(1);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,4 +84,4 @@ const OrderFormBlock = () => {
     )
 }
 
-export default OrderFormBlock
+export default OrderFormBlock;
