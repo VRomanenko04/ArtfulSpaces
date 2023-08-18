@@ -19,3 +19,20 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
 }
+
+@media screen and (max-width: 970px) {
+    .container h1 {
+        max-width: 80%;
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        background: url(../../../assets/design_header_mobile.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: contain;
+        height: 700px;
+    }
+}
