@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useFormContext } from '../../context/FormContext';
 import classes from './_calculator.module.scss';
 import BasicInput from '../../components/UI/basic-input/BasicInput';
 import Selector from '../../components/UI/selector/Selector';
@@ -11,26 +12,13 @@ interface IStates {
 }
 
 const Calculator = () => {
-    const [metersNumber, setMetersNumber] = useState<IStates['metersNumber']>(0);
-    const [howManyRooms, setHowManyRooms] = useState<IStates['howManyRooms']>(1);
+    const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault} = useFormContext();
     const [estimatedPrice, setEstimatedPrice] = useState<IStates['estimatedPrice']>(0);
 
-    //Управление инпутами
-    const handleNumberChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const newNumber = parseInt(event.target.value, 10);
-        setHowManyRooms(newNumber);
-    };
-
-    const handleAmountInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue: number = parseFloat(event.target.value);
-        setMetersNumber(newValue);
-    };
-
     const handleCount = () => {
-        setEstimatedPrice(calculateCost(metersNumber, howManyRooms));
+        setEstimatedPrice(calculateCost(footage, roomsAmount));
 
-        setMetersNumber(0);
-        setHowManyRooms(1);
+        handleDefault();
     }
 
     return (
@@ -42,13 +30,13 @@ const Calculator = () => {
                 id="footage"
                 name="footage"
                 placeholder='0'
-                value={metersNumber === 0 ? '' : metersNumber}
+                value={footage === 0 ? '' : footage}
                 onChange={handleAmountInputChange}
                 extraLabelClass={classes.block__margin}
                 step="1"
             />
             <Selector
-                roomsAmount={howManyRooms}
+                roomsAmount={roomsAmount}
                 labelText='Number of rooms:'
                 htmlFor='rooms'
                 id='rooms'

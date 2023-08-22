@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useFormContext } from '../../../context/FormContext';
 import classes from './_order-form-block.module.scss';
 import OrderForm from '../order-form/OrderForm';
 import calculateCost from '../../../count/PriceCount';
@@ -18,9 +19,8 @@ interface ICalculate {
 
 const OrderFormBlock = () => {
     const [formData, setFormData] = useState<IFormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
-    const [footage, setFootage] = useState<ICalculate['footage']>(0);
-    const [roomsAmount, setRoomsAmount] = useState<ICalculate['roomsAmount']>(1);
     const [totalPrice, setTotalPrice] = useState<ICalculate['totalPrice']>(0);
+    const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault } = useFormContext();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -39,8 +39,7 @@ const OrderFormBlock = () => {
 
         //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
-        setFootage(0);
-        setRoomsAmount(1);
+        handleDefault();
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,17 +50,6 @@ const OrderFormBlock = () => {
         }));
     };
 
-    const handleAmountInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue: number = parseFloat(event.target.value);
-        setFootage(newValue);
-    };
-
-    //Handler для селектора 
-    const handleNumberChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const newNumber = parseInt(event.target.value, 10);
-        setRoomsAmount(newNumber);
-    };
-
     return (
         <section className={classes.form__section}>
             <OrderForm
@@ -70,7 +58,6 @@ const OrderFormBlock = () => {
                 handleAmountInputChange={handleAmountInputChange}
                 handleNumberChange={handleNumberChange}
                 formData={formData}
-                footage={footage}
                 roomsAmount={roomsAmount}
             />
             {

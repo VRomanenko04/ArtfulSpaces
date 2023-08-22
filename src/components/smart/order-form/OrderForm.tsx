@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useFormContext } from '../../../context/FormContext';
 import BasicInput from '../../UI/basic-input/BasicInput';
 import classes from './_order-form.module.scss';
 import Selector from '../../UI/selector/Selector';
@@ -20,11 +21,11 @@ type Props = {
     handleAmountInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleNumberChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     formData: IFormData;
-    footage: number;
     roomsAmount: number;
 }
 
-const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData, footage, roomsAmount}: Props) => {
+const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData, roomsAmount}: Props) => {
+    const { footage } = useFormContext();
     const [validationErrors, setValidationErrors] = useState<IValidate>({
         firstName: '',
         lastName: '',
