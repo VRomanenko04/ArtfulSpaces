@@ -1,4 +1,4 @@
-export default function calculateCost(quantity: number, rooms: number) {
+export default function calculateCost(quantity: number, rooms: number) :number {
     let price;
     
     switch (true) {
