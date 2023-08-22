@@ -21,11 +21,10 @@ type Props = {
     handleAmountInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleNumberChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     formData: IFormData;
-    roomsAmount: number;
 }
 
-const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData, roomsAmount}: Props) => {
-    const { footage } = useFormContext();
+const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData}: Props) => {
+    const { footage, roomsAmount } = useFormContext();
     const [validationErrors, setValidationErrors] = useState<IValidate>({
         firstName: '',
         lastName: '',

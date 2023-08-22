@@ -58,7 +58,6 @@ const OrderFormBlock = () => {
                 handleAmountInputChange={handleAmountInputChange}
                 handleNumberChange={handleNumberChange}
                 formData={formData}
-                roomsAmount={roomsAmount}
             />
             {
                 totalPrice > 0

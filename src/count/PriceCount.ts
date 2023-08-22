@@ -50,5 +50,5 @@ export default function calculateCost(quantity: number, rooms: number) :number {
             break;
     }
     
-    return quantity * price * roomCoefficient;
+    return Math.round(quantity * price * roomCoefficient);
 }
