@@ -22,35 +22,38 @@ const Calculator = () => {
     }
 
     return (
-        <section>
-            <BasicInput
-                labelText='Apartment Area (meters):'
-                htmlFor="footage"
-                type="number"
-                id="footage"
-                name="footage"
-                placeholder='0'
-                value={footage === 0 ? '' : footage}
-                onChange={handleAmountInputChange}
-                extraLabelClass={classes.block__margin}
-                step="1"
-            />
-            <Selector
-                roomsAmount={roomsAmount}
-                labelText='Number of rooms:'
-                htmlFor='rooms'
-                id='rooms'
-                name='rooms'
-                handleNumberChange={handleNumberChange}
-            />
-            <button onClick={handleCount}>Calculate</button>
-            {
-                estimatedPrice > 0
-                &&
-                <div className={classes.prev__price}>
-                    <p>Estimated cost of work: <strong>{estimatedPrice} UAH</strong></p>
-                </div>
-            }
+        <section className={classes.calculator}>
+            <div className={classes.calc_contruction}>
+                <BasicInput
+                    labelText='Apartment Area (meters):'
+                    htmlFor="footage"
+                    type="number"
+                    id="footage"
+                    name="footage"
+                    placeholder='0'
+                    value={footage === 0 ? '' : footage}
+                    onChange={handleAmountInputChange}
+                    extraLabelClass={classes.block__margin}
+                    step="1"
+                />
+                <Selector
+                    roomsAmount={roomsAmount}
+                    labelText='Number of rooms:'
+                    htmlFor='rooms'
+                    id='rooms'
+                    name='rooms'
+                    handleNumberChange={handleNumberChange}
+                    extraLabelClass={classes.label_margin}
+                />
+                <button onClick={handleCount} className={classes.btn}>Calculate</button>
+                {
+                    estimatedPrice > 0
+                    &&
+                    <div className={classes.prev__price}>
+                        <p>Estimated cost of work: <strong>{estimatedPrice} UAH</strong></p>
+                    </div>
+                }
+            </div>
         </section>
     )
 }
