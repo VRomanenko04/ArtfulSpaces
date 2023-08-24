@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Order from "./pages/order/Order";
 import Examples from "./pages/examples/Examples";
 import Contact from "./pages/contact/Contact";
@@ -10,13 +11,14 @@ import { FormContextProvider } from "./context/FormContext";
 import Payment from "./pages/payment/Payment";
 import OrderRules from "./pages/orderRules/OrderRules";
 
-function App() {
+const App: React.FC = () => {
   return (
     <FormContextProvider>
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='order' element={<Order/>}/>
+          <Route path='contact/order' element={<RedirectToOrder />}/>
           <Route path='examples' element={<Examples/>}/>
           <Route path='contact' element={<Contact/>}/>
           <Route path='calculator' element={<Calculator/>}/>
@@ -27,6 +29,15 @@ function App() {
       </Routes>
     </FormContextProvider>
   )
-}
+};
+
+const RedirectToOrder: React.FC = () => {
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    navigate('/order');
+  }, [navigate]);
+
+  return null;
+};
 
 export default App;
