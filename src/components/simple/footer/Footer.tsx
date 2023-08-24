@@ -31,8 +31,8 @@ const Footer = () => {
                     </div>
                     <div className={classes.nav__part}>
                         <p><strong>Address</strong></p>
-                        <p>JL. Setiabudhi No. 193 Sukasari,<br/> Bandung West Java, Indonesia</p>
-                        <p>hallo@artful.com</p>
+                        <p>Street Velyka Vasylkivska 88, <br/> Kiev region, Kyiv</p>
+                        <p>designers@artful.com</p>
                     </div>
                 </div>
             </div>
