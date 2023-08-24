@@ -18,16 +18,19 @@ export const FormContextProvider: React.FC<FormContextProviderProps> = ({ childr
   const [footage, setFootage] = useState(0);
   const [roomsAmount, setRoomsAmount] = useState(1);
 
+  //Функция упраления вводом числа
   const handleAmountInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseFloat(event.target.value);
     setFootage(newValue);
   };
 
+  //Функция управления селектором
   const handleNumberChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newNumber = parseInt(event.target.value, 10);
     setRoomsAmount(newNumber);
   };
 
+  //Функция сброса
   const handleDefault = () => {
     setFootage(0);
     setRoomsAmount(1);
