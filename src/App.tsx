@@ -7,6 +7,8 @@ import Cabinet from "./pages/cabinet/Cabinet";
 import Home from "./pages/home/Home";
 import Layout from "./components/smart/Layout";
 import { FormContextProvider } from "./context/FormContext";
+import Payment from "./pages/payment/Payment";
+import OrderRules from "./pages/orderRules/OrderRules";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path='contact' element={<Contact/>}/>
           <Route path='calculator' element={<Calculator/>}/>
           <Route path='cabinet' element={<Cabinet/>}/>
+          <Route path='payment' element={<Payment/>}/>
+          <Route path='howorder' element={<OrderRules/>}/>
         </Route>
       </Routes>
     </FormContextProvider>
