@@ -1,0 +1,90 @@
+@import '../../style/var';
+
+.container {
+    margin-bottom: 100px;
+    margin-top: 20px;
+
+
+    .info__block {
+        padding: 0 100px;
+
+        h6 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 80%;
+        }
+    }
+}
+
+.head {
+    height: 600px;
+    background-image: url(../../assets/kiev-view.webp);
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+        color: #fff;
+        text-align: center;
+        font-size: 32px;
+        max-width: 80%;
+    }
+}
+
+.social__links {
+    margin-top: 10px;
+
+    a, img {
+        height: 60px;
+        width: auto;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        .info__block {
+            padding: 0 30px;
+
+            h6 {
+                font-size: 20px;
+                font-weight: 500;
+                margin-top: 30px;
+            }
+    
+            p {
+                text-align: left;
+                font-size: 16px;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .head {
+        height: auto;
+        background-image: none;
+        background-color: #fff;
+        margin-bottom: 50px;
+
+        h4 {
+            padding: 20px;
+            font-size: 24px;
+            background: $maingradient;
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent;
+            text-align: start;
+        }
+    }
+}
