@@ -1,0 +1,26 @@
+.container {
+    margin: 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+@media screen and (max-width: 1250px) {
+    .grid__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .grid__list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+    }
+}

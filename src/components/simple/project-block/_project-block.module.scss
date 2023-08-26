@@ -1,0 +1,39 @@
+@import '../../../style/var';
+
+.picture {
+    height: 400px;
+    width: 400px;
+    border-radius: 15px 15px 0 0;
+}
+
+.project__card {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        font-size: 18px;
+        height: 60px;
+        width: 100%;
+        font-weight: 500;
+        border-radius: 0 0 15px 15px;
+        border: none;
+        background: $maingradient;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .picture {
+        height: 330px;
+        width: 320px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .project__card {
+        button {
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0 0 15px 15px;
+        }
+    }
+}
