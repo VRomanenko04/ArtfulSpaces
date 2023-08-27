@@ -10,6 +10,7 @@ import Layout from "./components/smart/Layout";
 import { FormContextProvider } from "./context/FormContext";
 import Payment from "./pages/payment/Payment";
 import OrderRules from "./pages/orderRules/OrderRules";
+import ProjectPage from "./components/simple/project-page/ProjectPage";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path='order' element={<Order/>}/>
           <Route path='contact/order' element={<RedirectToOrder />}/>
           <Route path='examples' element={<Examples/>}/>
+          <Route path='examples/:projectID' element={<ProjectPage/>}></Route>
           <Route path='contact' element={<Contact/>}/>
           <Route path='calculator' element={<Calculator/>}/>
           <Route path='cabinet' element={<Cabinet/>}/>

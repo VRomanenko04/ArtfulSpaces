@@ -18,7 +18,7 @@ const Examples = () => {
             <div className={classes.grid__list}>
                 {
                     imgList.map((picture, index) => (
-                        <ProjectBlock picture={picture} key={index}/>
+                        <ProjectBlock picture={picture} key={index} link={`/examples/project${index + 1}`}/>
                     ))
                 }
             </div>
