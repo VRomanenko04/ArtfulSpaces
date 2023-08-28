@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import Order from "./pages/order/Order";
 import Examples from "./pages/examples/Examples";
 import Contact from "./pages/contact/Contact";
@@ -12,9 +12,20 @@ import Payment from "./pages/payment/Payment";
 import OrderRules from "./pages/orderRules/OrderRules";
 import ProjectPage from "./pages/project-page/ProjectPage";
 
+function ScrollToTopOnRouteChange() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+}
+
 const App: React.FC = () => {
   return (
     <FormContextProvider>
+      <ScrollToTopOnRouteChange />
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
