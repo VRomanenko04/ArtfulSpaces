@@ -10,7 +10,7 @@ import Layout from "./components/smart/Layout";
 import { FormContextProvider } from "./context/FormContext";
 import Payment from "./pages/payment/Payment";
 import OrderRules from "./pages/orderRules/OrderRules";
-import ProjectPage from "./components/simple/project-page/ProjectPage";
+import ProjectPage from "./pages/project-page/ProjectPage";
 
 const App: React.FC = () => {
   return (
