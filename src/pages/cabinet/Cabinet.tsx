@@ -1,9 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
+import Popup from '../../components/simple/popup/Popup';
 
 
 const Cabinet = () => {
+    const [modalActive, setModalActive] = useState(false);
+
     return (
-        <div>Cabinet</div>
+        <section>
+            <button onClick={() => setModalActive(true)}>Orders</button>
+            <Popup active={modalActive} setActive={setModalActive}>
+                <p>Hello</p>
+            </Popup>
+        </section>
     )
 }
 
