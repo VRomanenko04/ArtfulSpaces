@@ -24,18 +24,23 @@ const OrderFormBlock = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        //Высчитываем цену заказа
+        setTotalPrice(calculateCost(footage, roomsAmount));
+        
         // Создаем объект с данными формы
         const formDataObject = {
             firstName: formData.firstName,
             lastName: formData.lastName,
             phoneNumber: formData.phoneNumber,
             email: formData.email,
+            footage: footage,
+            roomsAmount: roomsAmount,
+            totalPrice: totalPrice
         };
+
         // Сохраняем данные в localStorage
         localStorage.setItem('formData', JSON.stringify(formDataObject));
-
-        //Высчитываем цену заказа
-        setTotalPrice(calculateCost(footage, roomsAmount));
 
         //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
