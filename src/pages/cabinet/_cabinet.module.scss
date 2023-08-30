@@ -32,3 +32,28 @@
     border-radius: 7px;
     cursor: pointer;
 }
+
+.list__container {
+    border: 2px solid transparent;
+    border-image: $maingradient;
+    border-image-slice: 1;
+    padding: 20px 30px;
+}
+
+.modal__list {
+    display: flex;
+    flex-direction: row;
+    p {
+        margin-bottom: 10px;
+    }
+
+    .left__col {
+        margin-right: 80px;
+    }
+
+    .rigth__col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}

@@ -19,7 +19,10 @@ const Cabinet = () => {
         email: '',
         phoneNumber: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        footage: 0,
+        roomsAmount: 0,
+        totalPrice: 0
     });
 
     useEffect(() => {
@@ -72,14 +75,27 @@ const Cabinet = () => {
             </form>
             {shouldShowPopup ? 
                 <Popup active={modalActive} setActive={setModalActive}>
-                    <p>
-                        Hello, {formData.firstName} {formData.lastName}!
-                    </p>
+                    <div>
+                        <h2>Active Orders:</h2>
+                        <div className={classes.list__container}>
+                            <div className={classes.modal__list}> 
+                                <div className={classes.left__col}> 
+                                    <p>Order №1</p>
+                                    <p>Apartment Area: {formData.footage} meters</p>
+                                    <p>Rooms in: {formData.roomsAmount}</p>
+                                </div>
+                                <div className={classes.rigth__col}>
+                                    <p>Order Status: Expect a call</p>
+                                    <p>Estimated price: {formData.totalPrice} UAH</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </Popup>
                 :
                 <Popup active={modalActive} setActive={setModalActive}>
                     <p>
-                        You don't have order yet ):
+                        You don't have order's yet ):
                     </p>
                 </Popup>
             }
