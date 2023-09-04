@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Popup from '../../components/simple/popup/Popup';
+import Popup from '../../components/UI/popup/Popup';
 import BasicInput from '../../components/UI/basic-input/BasicInput';
 import classes from './_cabinet.module.scss';
 
