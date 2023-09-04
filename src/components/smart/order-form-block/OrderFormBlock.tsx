@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useFormContext } from '../../../context/FormContext';
 import classes from './_order-form-block.module.scss';
 import OrderForm from '../order-form/OrderForm';
@@ -23,6 +23,11 @@ const OrderFormBlock = () => {
     const [totalPrice, setTotalPrice] = useState<ICalculate['totalPrice']>(0);
     const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault } = useFormContext();
 
+    useEffect(() => {
+        // При монтировании компонента, загружаем заказы из localStorage, если они есть
+        const savedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+    }, []);
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -41,8 +46,14 @@ const OrderFormBlock = () => {
             totalPrice: calculatedPrice
         };
 
-        // Сохраняем данные в localStorage
-        localStorage.setItem('formData', JSON.stringify(formDataObject));
+        // Загружаем существующие заказы из localStorage
+        const savedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+
+        // Добавляем новый заказ в массив
+        savedOrders.push(formDataObject);
+
+        // Сохраняем обновленный массив заказов в localStorage
+        localStorage.setItem('orders', JSON.stringify(savedOrders));
 
         //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
