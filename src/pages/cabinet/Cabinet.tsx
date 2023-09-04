@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Popup from '../../components/UI/popup/Popup';
 import BasicInput from '../../components/UI/basic-input/BasicInput';
 import classes from './_cabinet.module.scss';
 
+interface IOrder {
+    email: string;
+    phoneNumber: string;
+    footage: number;
+    roomsAmount: number;
+    totalPrice: number;
+}
 
 const Cabinet = () => {
     const [modalActive, setModalActive] = useState(false);
-
     const [loginData, setLoginData] = useState(() => {
         const storedLoginData = JSON.parse(sessionStorage.getItem('loginData') || '{}');
         return {
@@ -15,20 +21,7 @@ const Cabinet = () => {
         };
     });
 
-    const [formData, setFormData] = useState({
-        email: '',
-        phoneNumber: '',
-        firstName: '',
-        lastName: '',
-        footage: 0,
-        roomsAmount: 0,
-        totalPrice: 0
-    });
-
-    useEffect(() => {
-        const storedOrderData = JSON.parse(localStorage.getItem('formData') || '{}');
-        setFormData(storedOrderData);
-    }, []);
+    const [foundOrders, setFoundOrders] = useState<IOrder[]>([]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -38,14 +31,24 @@ const Cabinet = () => {
         }));
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => { // Указываем тип FormEvent
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const allOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+    
+        // приводим всё к стандарту
+        const normalizedEmail = loginData.email.trim().toLowerCase();
+        const normalizedPhoneNumber = loginData.phoneNumber.trim();
+    
+        // Ищем заказы, соответствующие введенным данным
+        const matchingOrders = allOrders.filter((order: IOrder) => (
+            order.email.trim().toLowerCase() === normalizedEmail &&
+            order.phoneNumber.trim() === normalizedPhoneNumber
+        ));
+    
+        setFoundOrders(matchingOrders);
         setModalActive(true);
         sessionStorage.setItem('loginData', JSON.stringify(loginData));
     };
-
-    const shouldShowPopup = (loginData.email === formData.email && loginData.phoneNumber === formData.phoneNumber) &&
-    loginData.email !== '' && loginData.phoneNumber !== '';
 
     return (
         <section className={classes.container}>
@@ -73,34 +76,32 @@ const Cabinet = () => {
                 />
                 <button className={classes.btn}>Check order status</button>
             </form>
-            {shouldShowPopup ? 
-                <Popup active={modalActive} setActive={setModalActive}>
+            <Popup active={modalActive} setActive={setModalActive}>
+                {foundOrders.length > 0 ? (
                     <div>
                         <h2>Active Orders:</h2>
                         <div className={classes.list__container}>
-                            <div className={classes.modal__list}> 
-                                <div className={classes.left__col}> 
-                                    <p>Order №1</p>
-                                    <p>Apartment Area: {formData.footage} meters</p>
-                                    <p>Rooms in: {formData.roomsAmount}</p>
+                            {foundOrders.map((order, index) => (
+                                <div className={classes.modal__list} key={index}>
+                                    <div className={classes.left__col}>
+                                        <p>Order №{index + 1}</p>
+                                        <p>Apartment Area: {order.footage} meters</p>
+                                        <p>Rooms in: {order.roomsAmount}</p>
+                                    </div>
+                                    <div className={classes.right__col}>
+                                        <p>Order Status: Expect a call</p>
+                                        <p>Estimated price: {order.totalPrice} UAH</p>
+                                    </div>
                                 </div>
-                                <div className={classes.rigth__col}>
-                                    <p>Order Status: Expect a call</p>
-                                    <p>Estimated price: {formData.totalPrice} UAH</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                </Popup>
-                :
-                <Popup active={modalActive} setActive={setModalActive}>
-                    <p>
-                        You don't have order's yet ):
-                    </p>
-                </Popup>
-            }
+                ) : (
+                    <p>You don't have orders yet :(</p>
+                )}
+            </Popup>
         </section>
-    )
-}
+    );
+};
 
 export default Cabinet;
