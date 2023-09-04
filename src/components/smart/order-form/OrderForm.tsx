@@ -3,6 +3,7 @@ import { useFormContext } from '../../../context/FormContext';
 import BasicInput from '../../UI/basic-input/BasicInput';
 import classes from './_order-form.module.scss';
 import Selector from '../../UI/selector/Selector';
+import Popup from '../../UI/popup/Popup';
 
 interface IFormData {
     firstName: string;
@@ -21,9 +22,11 @@ type Props = {
     handleAmountInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleNumberChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     formData: IFormData;
+    isPopup: boolean;
+    setIsPopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData}: Props) => {
+const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, handleNumberChange, formData, isPopup, setIsPopup}: Props) => {
     const { footage, roomsAmount } = useFormContext();
     const [validationErrors, setValidationErrors] = useState<IValidate>({
         firstName: '',
@@ -146,6 +149,9 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                 </div>
                 <button className={classes.btn} type="submit">Place an Order</button>
             </form>
+            <Popup active={isPopup} setActive={setIsPopup}>
+                <h4>Your order has been processed!</h4>
+            </Popup>
         </>
     )
 }

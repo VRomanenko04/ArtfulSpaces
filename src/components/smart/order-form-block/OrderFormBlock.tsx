@@ -18,6 +18,7 @@ interface ICalculate {
 }
 
 const OrderFormBlock = () => {
+    const [popupActive, setPopupActive] = useState(false);
     const [formData, setFormData] = useState<IFormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
     const [totalPrice, setTotalPrice] = useState<ICalculate['totalPrice']>(0);
     const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault } = useFormContext();
@@ -26,7 +27,8 @@ const OrderFormBlock = () => {
         event.preventDefault();
 
         //Высчитываем цену заказа
-        setTotalPrice(calculateCost(footage, roomsAmount));
+        const calculatedPrice = calculateCost(footage, roomsAmount);
+        setTotalPrice(calculatedPrice);
         
         // Создаем объект с данными формы
         const formDataObject = {
@@ -36,7 +38,7 @@ const OrderFormBlock = () => {
             email: formData.email,
             footage: footage,
             roomsAmount: roomsAmount,
-            totalPrice: totalPrice
+            totalPrice: calculatedPrice
         };
 
         // Сохраняем данные в localStorage
@@ -45,6 +47,9 @@ const OrderFormBlock = () => {
         //Сбрасываем показатели
         setFormData({ firstName: '', lastName: '', phoneNumber: '', email: '' });
         handleDefault();
+
+        //Отображаем модальное окно
+        setPopupActive(true);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,6 +68,8 @@ const OrderFormBlock = () => {
                 handleAmountInputChange={handleAmountInputChange}
                 handleNumberChange={handleNumberChange}
                 formData={formData}
+                isPopup={popupActive}
+                setIsPopup={setPopupActive}
             />
             {
                 totalPrice > 0
