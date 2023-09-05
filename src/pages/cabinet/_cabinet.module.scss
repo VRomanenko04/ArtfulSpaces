@@ -45,9 +45,7 @@
     border-image-slice: 1;
     padding: 20px 30px;
     margin-bottom: 30px;
-}
 
-.modal__list {
     p {
         margin-bottom: 10px;
     }
@@ -60,5 +58,23 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container h2 {
+        font-size: 28px;
+    }
+
+    .order__block {
+        padding: 10px 20px;
+
+        p {
+            font-size: 14px;
+        }
+
+        .left__col {
+            margin-right: 40px;
+        }
     }
 }
