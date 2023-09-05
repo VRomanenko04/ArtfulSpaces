@@ -83,14 +83,16 @@ const Cabinet = () => {
                         <div className={classes.list__container}>
                             {foundOrders.map((order, index) => (
                                 <div className={classes.modal__list} key={index}>
-                                    <div className={classes.left__col}>
-                                        <p>Order №{index + 1}</p>
-                                        <p>Apartment Area: {order.footage} meters</p>
-                                        <p>Rooms in: {order.roomsAmount}</p>
-                                    </div>
-                                    <div className={classes.right__col}>
-                                        <p>Order Status: Expect a call</p>
-                                        <p>Estimated price: {order.totalPrice} UAH</p>
+                                    <div className={classes.order__block}>
+                                        <div className={classes.left__col}>
+                                            <p>Order №{index + 1}</p>
+                                            <p>Apartment Area: {order.footage} meters</p>
+                                            <p>Rooms in: {order.roomsAmount}</p>
+                                        </div>
+                                        <div className={classes.right__col}>
+                                            <p>Order Status: Expect a call</p>
+                                            <p>Estimated price: {order.totalPrice} UAH</p>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
