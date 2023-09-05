@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, useNavigate, useLocation, BrowserRouter } from "react-router-dom";
 import Order from "./pages/order/Order";
 import Examples from "./pages/examples/Examples";
 import Contact from "./pages/contact/Contact";
@@ -26,7 +26,7 @@ const App: React.FC = () => {
   return (
     <FormContextProvider>
       <ScrollToTopOnRouteChange />
-      <Routes>
+      <BrowserRouter>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='order' element={<Order/>}/>
@@ -39,7 +39,7 @@ const App: React.FC = () => {
           <Route path='payment' element={<Payment/>}/>
           <Route path='howorder' element={<OrderRules/>}/>
         </Route>
-      </Routes>
+      </BrowserRouter>
     </FormContextProvider>
   )
 };
