@@ -25,7 +25,7 @@ const OrderFormBlock = () => {
 
     useEffect(() => {
         // При монтировании компонента, загружаем заказы из localStorage, если они есть
-        const savedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+        JSON.parse(localStorage.getItem('orders') || '[]');
     }, []);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

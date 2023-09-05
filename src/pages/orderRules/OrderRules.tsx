@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './_order-rules.module.scss';
 
 const OrderRules = () => {
