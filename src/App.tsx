@@ -7,7 +7,6 @@ import Calculator from "./pages/calculator/Calculator";
 import Cabinet from "./pages/cabinet/Cabinet";
 import Home from "./pages/home/Home";
 import Layout from "./components/smart/Layout";
-import { FormContextProvider } from "./context/FormContext";
 import Payment from "./pages/payment/Payment";
 import OrderRules from "./pages/orderRules/OrderRules";
 import ProjectPage from "./pages/project-page/ProjectPage";
@@ -24,8 +23,8 @@ function ScrollToTopOnRouteChange() {
 
 const App: React.FC = () => {
   return (
-    <FormContextProvider>
-      <ScrollToTopOnRouteChange />
+    <>
+        <ScrollToTopOnRouteChange />
         <Routes>
             <Route path='/' element={<Layout/>}>
               <Route index element={<Home/>}/>
@@ -40,7 +39,7 @@ const App: React.FC = () => {
               <Route path='howorder' element={<OrderRules/>}/>
             </Route>
         </Routes>
-    </FormContextProvider>
+    </>
   )
 };
 
