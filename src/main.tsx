@@ -8,7 +8,7 @@ import './style/index.scss';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <FormContextProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.NODE_ENV==='production' ? '/ArtfulSpaces' : '/'}>
         <App />
       </BrowserRouter>
     </FormContextProvider>
