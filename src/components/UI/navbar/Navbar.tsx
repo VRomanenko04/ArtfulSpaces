@@ -9,6 +9,7 @@ import logo_home from '../../../assets/ArtfulSpaces_logo.png';
 import logo from '../../../assets/ArtfulSpaces_logo_black.png';
 import cabinet_btn from '../../../assets/cabinet_icon.svg';
 import cabinet_home_btn from '../../../assets/cabinet_icon_white.svg';
+import Localisation from '../../smart/localisation/Localisation';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -84,6 +85,7 @@ const Navbar = () => {
                                                     }
                                                 </motion.li>
                                             )}
+                                            <Localisation/>
                                         </motion.ul>
                                 </AnimatePresence>
                             )}

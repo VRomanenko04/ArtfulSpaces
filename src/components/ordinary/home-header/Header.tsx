@@ -1,11 +1,14 @@
 import classes from './_header.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+    const { t } = useTranslation();
+
     return (
         <div className={classes.header}>
             <div className={classes.head__text}>
-                <h1>Interiors that tell your story</h1>
-                <p>Every corner becomes the story of your life. We create unique interiors that reflect your character and inspire new stories every day.</p>
+                <h1>{t("headMainText")}</h1>
+                <p>{t("headSecondText")}</p>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import { FormContextProvider } from "./context/FormContext";
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './style/index.scss';
+import './i18n.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
