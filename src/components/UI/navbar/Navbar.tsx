@@ -71,21 +71,21 @@ const Navbar = () => {
                                             <NavLink className={componentClass} to='order'>Order</NavLink>
                                             <NavLink className={componentClass} to='examples'>Work Examples</NavLink>
                                             <NavLink className={componentClass} to='contact'>Contact</NavLink>
-                                                {location.pathname !== 'cabinet' && (
-                                                    <motion.li className='nav__li' >
-                                                        {
-                                                            isHomePage ? 
-                                                            <Link className='cabinet' to='cabinet'>
-                                                                <img src={cabinet_home_btn} alt="cabinet_btn" />
-                                                            </Link>
-                                                            : 
-                                                            <Link className='cabinet' to='cabinet'>
-                                                                <img src={cabinet_btn} alt="cabinet_btn" />
-                                                            </Link>
-                                                        }
-                                                    </motion.li>
-                                                )}
-                                                <Localisation/>
+                                            {location.pathname !== 'cabinet' && (
+                                                <motion.li className='nav__li' >
+                                                    {
+                                                        isHomePage ? 
+                                                        <Link className='cabinet' to='cabinet'>
+                                                            <img src={cabinet_home_btn} alt="cabinet_btn" />
+                                                        </Link>
+                                                        : 
+                                                        <Link className='cabinet' to='cabinet'>
+                                                            <img src={cabinet_btn} alt="cabinet_btn" />
+                                                        </Link>
+                                                    }
+                                                </motion.li>
+                                            )}
+                                            <Localisation/>
                                         </motion.ul>
                                 </AnimatePresence>
                             )}
