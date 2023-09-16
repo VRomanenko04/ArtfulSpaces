@@ -1,6 +1,7 @@
 import classes from './_slides-list.module.scss';
 import Slides from '../../ordinary/slides/Slides';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import project1_1 from '../../../assets/projectes_imgs/project-1-1.webp';
 import project1_2 from '../../../assets/projectes_imgs/project-1-2.webp';
@@ -21,30 +22,32 @@ type Props = {
 };
 
 const SlidesList = ({ currentSlideIndex }: Props) => {
+    const { t } = useTranslation();
+
     const projects = [
         {
             img1: project1_1,
             img2: project1_2,
             img3: project1_3,
-            slideHead: 'Modern kitchen',
+            slideHead: t("slideHead1"),
         },
         {
             img1: project2_1,
             img2: project2_2,
             img3: project2_3,
-            slideHead: 'Basic kitchen',
+            slideHead: t("slideHead2"),
         },
         {
             img1: project3_1,
             img2: project3_2,
             img3: project3_3,
-            slideHead: "Сhildren's room",
+            slideHead:  t("slideHead3"),
         },
         {
             img1: project4_1,
             img2: project4_2,
             img3: project4_3,
-            slideHead: 'Modern bedroom',
+            slideHead: t("slideHead4"),
         },
     ];
 

@@ -1,4 +1,5 @@
 import classes from './_home-info.module.scss';
+import { useTranslation } from 'react-i18next';
 
 import individual from '../../../assets/Individual.svg';
 import team from '../../../assets/Team.svg';
@@ -7,22 +8,24 @@ import InfoBlock from '../../ordinary/info-block/InfoBlock';
 
 
 const HomeInfo = () => {
+    const { t } = useTranslation();
+
     return (
         <section className={classes.info}>
             <InfoBlock
                 img={individual}
-                headText='Individual approach'
-                sideText='Each project is unique, just like you.'
+                headText={t("headText1")}
+                sideText={t("sideText1")}
             />
             <InfoBlock
                 img={team}
-                headText='Talented team'
-                sideText='Only experienced craftsmen.'
+                headText={t("headText2")}
+                sideText={t("sideText2")}
             />
             <InfoBlock
                 img={speed}
-                headText='Fast work'
-                sideText='No overdue projects.'
+                headText={t("headText3")}
+                sideText={t("sideText3")}
             />
         </section>
     )

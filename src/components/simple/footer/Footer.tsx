@@ -1,44 +1,47 @@
 import FooterNav from '../../UI/footer-navbar/FooterNav';
 import Subscribe from '../../UI/subscribe/Subscribe';
 import classes from './_footer.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
+
     const links_1 = [
-        { link: 'Payment & Tax', to: 'payment' },
-        { link: 'About order', to: 'howorder'}
+        { link: t("footerLink1"), to: 'payment' },
+        { link: t("footerLink2"), to: 'howorder'}
     ];
     const links_2 = [
-        { link: 'Work examples', to: 'examples' },
-        { link: 'Order', to: 'order' },
-        { link: 'Contact', to: 'contact' }
+        { link: t("footerLink3"), to: 'examples' },
+        { link: t("footerLink4"), to: 'order' },
+        { link: t("footerLink5"), to: 'contact' }
     ];
 
     return (
         <section className={classes.footer__container}>
             <div className={classes.footer__navbar}>
                 <div className={classes.subscribe__block}>
-                    <h4>Newslatter</h4>
+                    <h4>{t("newslatter")}</h4>
                     <Subscribe/>
                 </div>
                 <div className={classes.navlinks}>
                     <div className={classes.nav__part}>
-                        <p><strong>Useful Link</strong></p>
+                        <p><strong>{t("footerHead1")}</strong></p>
                         <FooterNav links={links_1}/>
                     </div>
                     <div className={classes.nav__part}>
-                        <p><strong>Our Menu</strong></p>
+                        <p><strong>{t("footerHead2")}</strong></p>
                         <FooterNav links={links_2}/>
                     </div>
                     <div className={classes.nav__part}>
-                        <p><strong>Address</strong></p>
-                        <p>Street Velyka Vasylkivska 88, <br/> Kiev region, Kyiv</p>
-                        <p>designers@artful.com</p>
+                        <p><strong>{t("footerHead3")}</strong></p>
+                        <p>{t("footerAdress")} <br/> {t("footerAdress2")}</p>
+                        <p>{t("footerMain")}</p>
                     </div>
                 </div>
             </div>
             <div className={classes.line}></div>
             <div className={classes.copyright}>
-                <p>© 2023 ArtfulSpaces - All rights reserved.</p>
+                <p>{t("footerCopyright")}</p>
             </div>
         </section>
     )

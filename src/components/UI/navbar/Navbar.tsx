@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Media from 'react-media';
+import { useTranslation } from 'react-i18next';
 import BurgerBtn from '../burger-btn/BurgerBtn';
 import './_navbar.scss';
 
@@ -16,6 +17,8 @@ const Navbar = () => {
     const [hideOrShow, setHideOrShow] = useState({});
     const [componentClass, setComponentClass] = useState<string>('menu_link');
     const location = useLocation();
+
+    const { t } = useTranslation();
 
     //Смена состояния и стиля элемента
     const handleMenu = () => {
@@ -67,10 +70,10 @@ const Navbar = () => {
                                             animate={{ x: isOpen ? 0 : (matches.small ? 500 : 0)}}
                                             transition={{ duration: 0.8 }}
                                         >
-                                            <NavLink className={componentClass} to='/'>Home</NavLink>
-                                            <NavLink className={componentClass} to='order'>Order</NavLink>
-                                            <NavLink className={componentClass} to='examples'>Work Examples</NavLink>
-                                            <NavLink className={componentClass} to='contact'>Contact</NavLink>
+                                            <NavLink className={componentClass} to='/'>{t("navHome")}</NavLink>
+                                            <NavLink className={componentClass} to='order'>{t("navOrder")}</NavLink>
+                                            <NavLink className={componentClass} to='examples'>{t("navExamples")}</NavLink>
+                                            <NavLink className={componentClass} to='contact'>{t("navContact")}</NavLink>
                                             {location.pathname !== 'cabinet' && (
                                                 <motion.li className='nav__li' >
                                                     {
