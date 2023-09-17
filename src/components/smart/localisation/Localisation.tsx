@@ -5,12 +5,11 @@ import { useTranslation } from 'react-i18next';
 
 const Localisation: React.FC = () => {
     const { i18n } = useTranslation();
-    const [selectedLanguage, setSelectedLanguage] = useState<string>('');
+    const [selectedLanguage, setSelectedLanguage] = useState('');
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
         setSelectedLanguage(lng);
-        sessionStorage.setItem('selectedLanguage', lng);
     }
 
     const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -19,7 +18,7 @@ const Localisation: React.FC = () => {
     }
 
     useEffect(() => {
-        const savedLanguage = sessionStorage.getItem('selectedLanguage');
+        const savedLanguage = localStorage.getItem('i18nextLng');
         if (savedLanguage) {
             setSelectedLanguage(savedLanguage); 
             changeLanguage(savedLanguage); 
