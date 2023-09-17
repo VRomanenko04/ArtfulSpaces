@@ -34,5 +34,15 @@
     "footerAdress": "Велика Васильківська 88, ",
     "footerAdress2": "Київська область, Київ",
     "footerMain": "designers@artful.com",
-    "footerCopyright": "© 2023 ArtfulSpaces - Всі права захищені."
+    "footerCopyright": "© 2023 ArtfulSpaces - Всі права захищені.",
+    "orderHeader": "Замовте унікальний 3D дизайн інтер'єру: втілюйте свої ідеї в реальність!",
+    "orderPrice": "Орієнтовна вартість роботи:",
+    "orderUAH": "грн",
+    "formLabel1": "Ім'я:",
+    "formLabel2": "Прізвище:",
+    "formLabel3": "Номер телефону:",
+    "formLabel4": "Площа приміщення (м):",
+    "formLabel5": "Кількість кімнат:",
+    "formBtn": "Зробити замовлення",
+    "formPopup": "Ваше замовлення оброблено!"
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useFormContext } from '../../../context/FormContext';
+import { useTranslation } from 'react-i18next';
 import classes from './_order-form-block.module.scss';
 import OrderForm from '../order-form/OrderForm';
 import calculateCost from '../../../count/PriceCount';
@@ -22,6 +23,8 @@ const OrderFormBlock = () => {
     const [formData, setFormData] = useState<IFormData>({ firstName: '', lastName: '', phoneNumber: '', email: '' });
     const [totalPrice, setTotalPrice] = useState<ICalculate['totalPrice']>(0);
     const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault } = useFormContext();
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         // При монтировании компонента, загружаем заказы из localStorage, если они есть
@@ -86,7 +89,7 @@ const OrderFormBlock = () => {
                 totalPrice > 0
                 &&
                 <div className={classes.prev__price}>
-                    <p>Estimated cost of work: <strong>{totalPrice} UAH</strong></p>
+                    <p>{t("orderPrice")} <strong>{totalPrice} {t("orderUAH")}</strong></p>
                 </div>
             }
         </section>

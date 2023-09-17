@@ -34,5 +34,15 @@
     "footerAdress": "Street Velyka Vasylkivska 88, ",
     "footerAdress2": "Kiev region, Kyiv",
     "footerMain": "designers@artful.com",
-    "footerCopyright": "© 2023 ArtfulSpaces - All rights reserved."
+    "footerCopyright": "© 2023 ArtfulSpaces - All rights reserved.",
+    "orderHeader": "Order a unique 3D interior design: Turn your ideas into reality!",
+    "orderPrice": "Estimated cost of work:",
+    "orderUAH": "UAH",
+    "formLabel1": "First Name:",
+    "formLabel2": "Last Name:",
+    "formLabel3": "Phone Number:",
+    "formLabel4": "Apartment Area (meters):",
+    "formLabel5": "Number of rooms:",
+    "formBtn": "Place an Order",
+    "formPopup": "Your order has been processed!"
 }

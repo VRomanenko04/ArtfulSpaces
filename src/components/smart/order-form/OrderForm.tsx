@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import { useFormContext } from '../../../context/FormContext';
 import BasicInput from '../../UI/basic-input/BasicInput';
 import classes from './_order-form.module.scss';
@@ -35,6 +36,8 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
         email: '',
         footage: ''
     });
+
+    const { t } = useTranslation();
     
     const isFormValid = () => {
         const errors: IValidate = {
@@ -81,7 +84,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                 <div className={classes.inputs__group}>
                     <div className={classes.rigth__col}>
                         <BasicInput
-                            labelText='First Name:'
+                            labelText={t("formLabel1")}
                             htmlFor="firstName"
                             type="text"
                             id="firstName"
@@ -91,7 +94,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                         />
                         {validationErrors.firstName && <p className={classes.error}>{validationErrors.firstName}</p>}
                         <BasicInput
-                            labelText='Last Name:'
+                            labelText={t("formLabel2")}
                             htmlFor="lastName"
                             type="text"
                             id="lastName"
@@ -101,7 +104,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                         />
                         {validationErrors.lastName && <p className={classes.error}>{validationErrors.lastName}</p>}
                         <BasicInput
-                            labelText='Phone Number:'
+                            labelText={t("formLabel3")}
                             htmlFor="phoneNumber"
                             type="tel"
                             id="phoneNumber"
@@ -125,7 +128,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                     </div>
                     <div className={classes.left__col}>
                         <BasicInput
-                            labelText='Apartment Area (meters):'
+                            labelText={t("formLabel4")}
                             htmlFor="footage"
                             type="number"
                             id="footage"
@@ -139,7 +142,7 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                         {validationErrors.footage && <p className={classes.error}>{validationErrors.footage}</p>}
                         <Selector
                             roomsAmount={roomsAmount}
-                            labelText='Number of rooms:'
+                            labelText={t("formLabel5")}
                             htmlFor='rooms'
                             id='rooms'
                             name='rooms'
@@ -147,10 +150,10 @@ const OrderForm = ({handleSubmit, handleInputChange, handleAmountInputChange, ha
                         />
                     </div>
                 </div>
-                <button className={classes.btn} type="submit">Place an Order</button>
+                <button className={classes.btn} type="submit">{t("formBtn")}</button>
             </form>
             <Popup active={isPopup} setActive={setIsPopup}>
-                <h4>Your order has been processed!</h4>
+                <h4>{t("formPopup")}</h4>
             </Popup>
         </>
     )

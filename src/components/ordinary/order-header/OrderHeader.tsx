@@ -1,11 +1,14 @@
 import classes from './_order-header.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const OrderHeader = () => {
+    const { t } = useTranslation();
+
     return (
         <div>
             <div className={classes.container}>
                 <h1>
-                    Order a unique 3D interior design: Turn your ideas into reality!
+                    {t("orderHeader")}
                 </h1>
             </div>
         </div>
