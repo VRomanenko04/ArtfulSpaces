@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFormContext } from '../../context/FormContext';
+import { useTranslation } from 'react-i18next';
 import classes from './_calculator.module.scss';
 import BasicInput from '../../components/UI/basic-input/BasicInput';
 import Selector from '../../components/UI/selector/Selector';
@@ -15,6 +16,8 @@ const Calculator = () => {
     const { footage, roomsAmount, handleAmountInputChange, handleNumberChange, handleDefault} = useFormContext();
     const [estimatedPrice, setEstimatedPrice] = useState<IStates['estimatedPrice']>(0);
 
+    const { t } = useTranslation();
+
     const handleCount = () => {
         setEstimatedPrice(calculateCost(footage, roomsAmount));
 
@@ -25,7 +28,7 @@ const Calculator = () => {
         <section className={classes.calculator}>
             <div className={classes.calc_contruction}>
                 <BasicInput
-                    labelText='Apartment Area (meters):'
+                    labelText={t("calculateInput1")}
                     htmlFor="footage"
                     type="number"
                     id="footage"
@@ -38,19 +41,19 @@ const Calculator = () => {
                 />
                 <Selector
                     roomsAmount={roomsAmount}
-                    labelText='Number of rooms:'
+                    labelText={t("calculateInput2")}
                     htmlFor='rooms'
                     id='rooms'
                     name='rooms'
                     handleNumberChange={handleNumberChange}
                     extraLabelClass={classes.label_margin}
                 />
-                <button onClick={handleCount} className={classes.btn}>Calculate</button>
+                <button onClick={handleCount} className={classes.btn}>{t("calculateBtn")}</button>
                 {
                     estimatedPrice > 0
                     &&
                     <div className={classes.prev__price}>
-                        <p>Estimated cost of work: <strong>{estimatedPrice} UAH</strong></p>
+                        <p>{t("orderPrice")} <strong>{estimatedPrice} {t("orderUAH")}</strong></p>
                     </div>
                 }
             </div>

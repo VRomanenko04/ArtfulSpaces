@@ -127,5 +127,8 @@
     "orderRulesListText1": "We offer face-to-face meetings where you can discuss your ideas, review progress, and provide feedback directly with our designers. Simply schedule an appointment and visit our office.",
     "orderRulesListTitle2": "Remote Communication:",
     "orderRulesListText2": "Unable to visit our office? No problem! We facilitate remote consultations through video calls, emails, and virtual presentations. This allows you to stay engaged and contribute to the design process from the comfort of your home.",
-    "orderRulesEndText": "At ArtfulSpaces, we are dedicated to making your design journey enjoyable and productive. We eagerly anticipate collaborating with you to create a space that genuinely reflects your individuality and lifestyle. If you have questions or would like to initiate your project, feel free to reach out using the contact information provided on the 'Contacts' page."
+    "orderRulesEndText": "At ArtfulSpaces, we are dedicated to making your design journey enjoyable and productive. We eagerly anticipate collaborating with you to create a space that genuinely reflects your individuality and lifestyle. If you have questions or would like to initiate your project, feel free to reach out using the contact information provided on the 'Contacts' page.",
+    "calculateBtn": "Calculate",
+    "calculateInput1": "Apartment Area (meters):",
+    "calculateInput2": "Number of rooms:"
 }
