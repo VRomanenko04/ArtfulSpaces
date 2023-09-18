@@ -88,7 +88,12 @@ const Navbar = () => {
                                                     }
                                                 </motion.li>
                                             )}
-                                            <Localisation/>
+                                            {
+                                                isHomePage ? 
+                                                <Localisation/>
+                                                :
+                                                <></>
+                                            }
                                         </motion.ul>
                                 </AnimatePresence>
                             )}
