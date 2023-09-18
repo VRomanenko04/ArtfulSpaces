@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 const Localisation: React.FC = () => {
     const { i18n } = useTranslation();
     const [selectedLanguage, setSelectedLanguage] = useState('');
+    const [isReloadNeeded, setIsReloadNeeded] = useState(false);
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
@@ -13,6 +14,8 @@ const Localisation: React.FC = () => {
     }
 
     const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setIsReloadNeeded(true);
+
         const selectedLanguage = event.target.value;
         changeLanguage(selectedLanguage);
     }
@@ -23,7 +26,13 @@ const Localisation: React.FC = () => {
             setSelectedLanguage(savedLanguage); 
             changeLanguage(savedLanguage); 
         }
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        if (isReloadNeeded) {
+            location.reload();
+        }
+    }, [isReloadNeeded]);
 
     return (
         <select className={classes.selector} onChange={handleLanguageChange} value={selectedLanguage}>

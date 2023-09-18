@@ -44,5 +44,20 @@
     "formLabel4": "Apartment Area (meters):",
     "formLabel5": "Number of rooms:",
     "formBtn": "Place an Order",
-    "formPopup": "Your order has been processed!"
+    "formPopup": "Your order has been processed!",
+    "exampleBtn": "More about project",
+    "projectTitle1": "Loft kitchen-living room",
+    "projectText1": "3D design of the kitchen-living room in a new building in the loft style. The work was completed in 6 days. Price of work: 7700 UAH. More work in our social networks.",
+    "projectTitle2": "Modern kitchen-dining room",
+    "projectText2": "3D design of a kitchen-dining room in an old house in modern style. The work was completed in 10 days. Price of work: 5900 UAH. More work in our social networks.",
+    "projectTitle3": "Modern children's room",
+    "projectText3": "3D design of a children's room (remade from a pantry) in a modern style. The work was completed in 4 days. Price of work: 4500 UAH. More work in our social networks.",
+    "projectTitle4": "Modern youth apartment",
+    "projectText4": "3D design of the whole apartment for a young couple in modern style. The work was completed in 20 days. Price of work: 18480 UAH. More work in our social networks.",
+    "projectTitle5": "Modern 2-room apartment",
+    "projectText5": "3D design of a 2-room apartment in the city center in modern style. The work was completed in 14 days. Price of work: 14700 UAH. More work in our social networks.",
+    "projectTitle6": "Modern kitchen-living room",
+    "projectText6": "3D design of the kitchen-living room in a new building in the modern style. The work was completed in 8 days. Price of work: 8200 UAH. More work in our social networks.",
+    "projectTitle7": "Bright modern apartment",
+    "projectText7": "3D design of a spacious bright 2-room apartment with 2 bathrooms in modern style. The work was completed in 21 days. Price of work: 19550 UAH. More work in our social networks."
 }

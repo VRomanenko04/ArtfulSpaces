@@ -1,3 +1,5 @@
+import i18n from "../i18n";
+
 import picture_1_1 from '../assets/projectes_imgs/project-1-1.webp';
 import picture_1_2 from '../assets/projectes_imgs/project-1-2.webp';
 import picture_1_3 from '../assets/projectes_imgs/project-1-3.webp';
@@ -53,33 +55,34 @@ import picture_7_6 from '../assets/projectes_imgs/project-7-6.webp';
 import picture_7_7 from '../assets/projectes_imgs/project-7-7.webp';
 import picture_7_8 from '../assets/projectes_imgs/project-7-8.webp';
 
+
 export const projects = [
-    {id: 1, title: 'Loft kitchen-living room', 
+    {id: 1, title: i18n.t("ns1:projectTitle1"), 
         photos: [picture_1_1, picture_1_2, picture_1_3, picture_1_4, picture_1_5, picture_1_6, picture_1_7, picture_1_8, picture_1_9],
-        text: '3D design of the kitchen-living room in a new building in the loft style. The work was completed in 6 days. Price of work: 7700 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText1")
     },
-    {id: 2, title: 'Modern kitchen-dining room', 
+    {id: 2, title: i18n.t("ns1:projectTitle2"), 
         photos: [picture_2_1, picture_2_2, picture_2_3, picture_2_4, picture_2_5, picture_2_6, picture_2_7],
-        text: '3D design of a kitchen-dining room in an old house in modern style. The work was completed in 10 days. Price of work: 5900 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText2")
     },
-    {id: 3, title: "Modern children's room", 
+    {id: 3, title: i18n.t("ns1:projectTitle3"), 
         photos: [picture_3_1, picture_3_2, picture_3_3, picture_3_4, picture_3_5, picture_3_6, picture_3_7],
-        text: "3D design of a children's room (remade from a sleeping room) in a modern style. The work was completed in 4 days. Price of work: 4500 UAH. More work in our social networks."
+        text: i18n.t("ns1:projectText3")
     },
-    {id: 4, title: 'Modern youth apartment', 
+    {id: 4, title: i18n.t("ns1:projectTitle4"), 
         photos: [picture_4_1, picture_4_2, picture_4_3, picture_4_4, picture_4_5, picture_4_6, picture_4_7],
-        text: '3D design of the whole apartment for a young couple in modern style. The work was completed in 20 days. Price of work: 18480 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText4")
     },
-    {id: 5, title: 'Modern 2-room apartment',
+    {id: 5, title: i18n.t("ns1:projectTitle5"),
         photos: [picture_5_1, picture_5_2, picture_5_3, picture_5_4, picture_5_5, picture_5_6, picture_5_7, picture_5_8, picture_5_9],
-        text: '3D design of a 2-room apartment in the city center in modern style. The work was completed in 14 days. Price of work: 14700 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText5")
     },
-    {id: 6, title: 'Modern kitchen-living room', 
+    {id: 6, title: i18n.t("ns1:projectTitle6"), 
         photos: [picture_6_1, picture_6_2, picture_6_3, picture_6_4, picture_6_5, picture_6_6, picture_6_7],
-        text: '3D design of the kitchen-living room in a new building in the modern style. The work was completed in 8 days. Price of work: 8200 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText6")
     },
-    {id: 7, title: 'Bright modern apartment', 
+    {id: 7, title: i18n.t("ns1:projectTitle7"), 
         photos: [picture_7_1, picture_7_2, picture_7_3, picture_7_4, picture_7_5, picture_7_6, picture_7_7, picture_7_8],
-        text: '3D design of a spacious bright 2-room apartment with 2 bathrooms in modern style. The work was completed in 21 days. Price of work: 19550 UAH. More work in our social networks.'
+        text: i18n.t("ns1:projectText7")
     },
 ]
