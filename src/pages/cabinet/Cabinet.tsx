@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Popup from '../../components/UI/popup/Popup';
 import BasicInput from '../../components/UI/basic-input/BasicInput';
 import classes from './_cabinet.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface IOrder {
     email: string;
@@ -22,6 +23,8 @@ const Cabinet = () => {
     });
 
     const [foundOrders, setFoundOrders] = useState<IOrder[]>([]);
+
+    const { t } = useTranslation();
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -52,7 +55,7 @@ const Cabinet = () => {
 
     return (
         <section className={classes.container}>
-            <h2>Check your order status</h2>
+            <h2>{t("cabinetHead")}</h2>
             <form className={classes.form} onSubmit={handleSubmit}>
                 <BasicInput
                     labelText='E-mail:'
@@ -65,7 +68,7 @@ const Cabinet = () => {
                     onChange={handleInputChange}
                 />
                 <BasicInput
-                    labelText='Phone Number:'
+                    labelText={t("cabinetInput")}
                     htmlFor="phoneNumber"
                     type="tel"
                     id="phoneNumber"
@@ -74,24 +77,24 @@ const Cabinet = () => {
                     value={loginData.phoneNumber}
                     onChange={handleInputChange}
                 />
-                <button className={classes.btn}>Check order status</button>
+                <button className={classes.btn}>{t("cabinetCheckStatus")}</button>
             </form>
             <Popup active={modalActive} setActive={setModalActive}>
                 {foundOrders.length > 0 ? (
                     <div>
-                        <h2>Active Orders:</h2>
+                        <h2>{t("cabinetOrders")}</h2>
                         <div className={classes.list__container}>
                             {foundOrders.map((order, index) => (
                                 <div className={classes.modal__list} key={index}>
                                     <div className={classes.order__block}>
                                         <div className={classes.left__col}>
-                                            <p>Order №{index + 1}</p>
-                                            <p>Apartment Area: {order.footage} meters</p>
-                                            <p>Rooms in: {order.roomsAmount}</p>
+                                            <p>{t("cabinetNumber")}{index + 1}</p>
+                                            <p>{t("cabinetApartment")} {order.footage} {t("cabinetMeters")}</p>
+                                            <p>{t("cabinetRooms")} {order.roomsAmount}</p>
                                         </div>
                                         <div className={classes.right__col}>
-                                            <p>Order Status: Expect a call</p>
-                                            <p>Estimated price: {order.totalPrice} UAH</p>
+                                            <p>{t("cabinetOrderStatus")}</p>
+                                            <p>{t("cabinetEstimatedPrice")} {order.totalPrice} {t("orderUAH")}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +102,7 @@ const Cabinet = () => {
                         </div>
                     </div>
                 ) : (
-                    <p>You don't have orders yet :(</p>
+                    <p>{t("cabinetDontOrders")}</p>
                 )}
             </Popup>
         </section>
